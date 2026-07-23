@@ -1,10 +1,610 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Karan Raj T — AI & Data Science Engineer</title>
+  <meta name="description" content="Portfolio of Karan Raj T — B.Tech Artificial Intelligence and Data Science student specializing in LLMs, RAG Pipelines, Linux Systems, and Full-Stack AI Applications." />
+  <link rel="icon" type="image/svg+xml" href="avatar.svg" />
+  
+  <!-- Open Graph / LinkedIn / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://vip-sk07.github.io/" />
+  <meta property="og:title" content="Karan Raj T — AI & Data Science Engineer" />
+  <meta property="og:description" content="Portfolio of Karan Raj T — B.Tech Artificial Intelligence and Data Science student specializing in LLMs, RAG Pipelines, Linux Systems, and Full-Stack AI Applications." />
+  <meta property="og:image" content="https://vip-sk07.github.io/avatar.svg" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Karan Raj T — AI & Data Science Engineer" />
+  <meta name="twitter:description" content="AI & Data Science Student · RAG & LLM Developer · Linux Enthusiast" />
+  <meta name="twitter:image" content="https://vip-sk07.github.io/avatar.svg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <h1>Welcome to My Website</h1>
-    <p>This website is hosted using GitHub Pages.</p>
+
+  <!-- Custom Cursor -->
+  <div class="cursor-ring" id="cursorRing"></div>
+  <div class="cursor-dot" id="cursorDot"></div>
+
+  <!-- Particles Background -->
+  <div class="particles" id="particles"></div>
+
+  <!-- ═══ NAVBAR ═══ -->
+  <nav id="navbar">
+    <a href="#hero" class="logo">Karan Raj<span class="logo-dot">.ai</span></a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#education">Education</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#certifications">Certificates</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a href="#contact" class="nav-cta" id="hireMeBtn">Get in Touch 🚀</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about" class="mob-link">About</a>
+    <a href="#education" class="mob-link">Education</a>
+    <a href="#skills" class="mob-link">Skills</a>
+    <a href="#projects" class="mob-link">Projects</a>
+    <a href="#certifications" class="mob-link">Certificates</a>
+    <a href="#contact" class="mob-link">Contact</a>
+  </div>
+
+  <!-- ═══ HERO ═══ -->
+  <section id="hero" class="hero">
+    <canvas class="starfield" id="starfield"></canvas>
+    <div class="hero-bg">
+      <div class="grid-overlay"></div>
+      <div class="orb orb1"></div>
+      <div class="orb orb2"></div>
+      <div class="orb orb3"></div>
+    </div>
+
+    <div class="hero-split">
+      <!-- Left -->
+      <div class="hero-left">
+        <div class="badge fade-up" style="animation-delay:.0s">
+          <span class="badge-dot"></span> Open to Internships & Research Roles
+        </div>
+        <h1 class="hero-name fade-up" style="animation-delay:.1s">
+          Hi, I'm <span class="grad-text">Karan Raj T</span>
+        </h1>
+        <p class="hero-role fade-up" style="animation-delay:.2s">
+          AI & Data Science Student · RAG & LLM Developer · Linux Enthusiast
+        </p>
+        <p class="hero-sub fade-up" style="animation-delay:.3s">
+          Passionate AI & Data Science undergraduate at Mepco Schlenk Engineering College (CGPA 8.39). Building local AI agents, custom Linux OS distributions, and scalable full-stack ML platforms.
+        </p>
+        <div class="hero-pills fade-up" style="animation-delay:.4s">
+          <span class="pill">Python</span>
+          <span class="pill">PyTorch / TensorFlow</span>
+          <span class="pill">LLMs & RAG</span>
+          <span class="pill">Linux (Parrot/RHEL)</span>
+          <span class="pill">Flask & React</span>
+          <span class="pill">C / C++ / Java</span>
+        </div>
+        <div class="hero-btns fade-up" style="animation-delay:.5s">
+          <a href="#projects" class="btn-primary">Explore Projects ↓</a>
+          <a href="#contact" class="btn-secondary">Request Resume 📄</a>
+        </div>
+        <div class="hero-stats fade-up" style="animation-delay:.6s" id="statsRow">
+          <div class="stat"><div class="stat-num grad-text" id="c1">0</div><div class="stat-lbl">Projects Built</div></div>
+          <div class="stat"><div class="stat-num grad-text" id="c2">0</div><div class="stat-lbl">Certifications</div></div>
+          <div class="stat"><div class="stat-num grad-text" id="c3">0</div><div class="stat-lbl">CGPA (out of 10)</div></div>
+          <div class="stat"><div class="stat-num grad-text" id="c4">0</div><div class="stat-lbl">Leadership Roles</div></div>
+        </div>
+      </div>
+
+      <!-- Right: Avatar -->
+      <div class="hero-right fade-in-right" style="animation-delay:.2s">
+        <div class="avatar-wrap">
+          <div class="glow-ring"></div>
+          <div class="orbit orbit1"></div>
+          <div class="orbit orbit2"></div>
+          <div class="avatar-frame">
+            <img src="avatar.svg" alt="Karan Raj T" class="avatar-img" />
+            <div class="avatar-scanlines"></div>
+            <div class="avatar-shimmer"></div>
+            <div class="avatar-holo"></div>
+          </div>
+          <div class="float-badge fb-live"><span class="fb-dot"></span> Pre-Final Year (AI & DS)</div>
+          <div class="float-badge fb-role">🤖 LLMs & RAG</div>
+          <div class="float-badge fb-ai">🐧 Linux Admin</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="scroll-ind">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- ═══ ABOUT ═══ -->
+  <section id="about" class="section reveal">
+    <div class="section-hdr">
+      <span class="sec-num">01</span>
+      <div>
+        <div class="sec-tag">Biography</div>
+        <h2 class="sec-title">Driven by curiosity in <span class="grad-text">AI & Systems</span></h2>
+      </div>
+    </div>
+    <div class="about-grid">
+      <div class="about-avatar-col reveal">
+        <div class="about-avatar-wrap">
+          <div class="spin-ring"></div>
+          <div class="about-inner">
+            <img src="avatar.svg" alt="Karan Raj T" class="about-img" />
+          </div>
+          <div class="float-badge ab-fb1">⚡ RAG Systems</div>
+          <div class="float-badge ab-fb2">🤖 Llama.cpp / Ollama</div>
+          <div class="float-badge ab-fb3">🌟 Google Club</div>
+        </div>
+      </div>
+      <div class="about-text-col reveal">
+        <p class="about-bio">
+          I am a pre-final year <strong>Artificial Intelligence and Data Science undergraduate</strong> at Mepco Schlenk Engineering College, Sivakasi with an academic record of <strong>8.39 CGPA</strong>.
+        </p>
+        <p class="about-bio" style="margin-top:1rem">
+          My primary technical interests lie in <strong>Cloud Computing, Linux System Administration, Large Language Models (LLMs), Hugging Face, Llama.cpp, and Retrieval-Augmented Generation (RAG)</strong>. I am continuously exploring open-source AI tools, optimization techniques, and custom kernel configurations to build scalable solutions.
+        </p>
+        <p class="about-bio" style="margin-top:1rem; font-style: italic; color: var(--accent2)">
+          🔬 <strong>Ongoing Research:</strong> "Design and Optimization of Hybrid Data Structures for Timestamp-Based Data Storage, Indexing, and Query Processing."
+        </p>
+        <div class="about-highlights">
+          <div class="highlight-item"><span class="hi-icon">🎓</span><div><strong>Mepco Schlenk Engg. College</strong><br/><span class="hi-sub">B.Tech AI & DS (2025–2029)</span></div></div>
+          <div class="highlight-item"><span class="hi-icon">📍</span><div><strong>Sattur / Sivakasi, TN</strong><br/><span class="hi-sub">India</span></div></div>
+          <div class="highlight-item"><span class="hi-icon">💼</span><div><strong>Leadership</strong><br/><span class="hi-sub">Google Student Club & IEI</span></div></div>
+        </div>
+        <div class="about-skills-row">
+          <span class="sk purple">Python</span>
+          <span class="sk purple">PyTorch</span>
+          <span class="sk purple">RAG & Vector DBs</span>
+          <span class="sk teal">Linux (Parrot OS / RHEL)</span>
+          <span class="sk teal">HuggingFace & Ollama</span>
+          <span class="sk blue">MySQL & Oracle SQL</span>
+          <span class="sk red">C / C++</span>
+          <span class="sk red">Core Java</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ EDUCATION ═══ -->
+  <section id="education" class="section reveal">
+    <div class="section-hdr">
+      <span class="sec-num">02</span>
+      <div>
+        <div class="sec-tag">Academic Journey</div>
+        <h2 class="sec-title">Education & <span class="grad-text">Leadership</span></h2>
+      </div>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card reveal">
+        <div class="skill-card-icon">🎓</div>
+        <h3 class="skill-card-title">B.Tech AI & Data Science</h3>
+        <p style="color:var(--accent2); font-weight:600; font-size:0.88rem;">Mepco Schlenk Engineering College</p>
+        <p style="color:var(--muted); font-size:0.8rem; margin: 0.3rem 0 0.8rem;">Sivakasi | 2025 – 2029 (Pre-Final Year)</p>
+        <div style="background:rgba(124,92,252,0.1); border:1px solid rgba(124,92,252,0.3); padding:0.5rem 0.8rem; border-radius:8px; display:inline-block; font-weight:700; color:#c4b5fd; font-size:0.85rem;">
+          CGPA: 8.39 / 10
+        </div>
+      </div>
+
+      <div class="skill-card reveal">
+        <div class="skill-card-icon">🏫</div>
+        <h3 class="skill-card-title">Class XII (HSC)</h3>
+        <p style="color:var(--accent2); font-weight:600; font-size:0.88rem;">S.H.N. Edward Higher Secondary School</p>
+        <p style="color:var(--muted); font-size:0.8rem; margin: 0.3rem 0 0.8rem;">Sattur | Completed</p>
+        <div style="background:rgba(0,212,170,0.1); border:1px solid rgba(0,212,170,0.3); padding:0.5rem 0.8rem; border-radius:8px; display:inline-block; font-weight:700; color:#5eead4; font-size:0.85rem;">
+          Percentage: 87.67%
+        </div>
+      </div>
+
+      <div class="skill-card reveal">
+        <div class="skill-card-icon">📚</div>
+        <h3 class="skill-card-title">Class X (SSLC)</h3>
+        <p style="color:var(--accent2); font-weight:600; font-size:0.88rem;">S.H.N. Edward Higher Secondary School</p>
+        <p style="color:var(--muted); font-size:0.8rem; margin: 0.3rem 0 0.8rem;">Sattur | Completed</p>
+        <div style="background:rgba(59,130,246,0.1); border:1px solid rgba(59,130,246,0.3); padding:0.5rem 0.8rem; border-radius:8px; display:inline-block; font-weight:700; color:#93c5fd; font-size:0.85rem;">
+          Percentage: 85.80%
+        </div>
+      </div>
+
+      <div class="skill-card reveal">
+        <div class="skill-card-icon">🌟</div>
+        <h3 class="skill-card-title">Leadership & Roles</h3>
+        <ul style="color:var(--muted); font-size:0.82rem; line-height:1.7; padding-left:1.2rem;">
+          <li><strong>Google Student Club</strong> — Office Bearer (2025–Present)</li>
+          <li><strong>IEI AI & DS Chapter</strong> — Executive Member (2025–Present)</li>
+          <li><strong>AIMEE Association</strong> — Design & Publicity Member</li>
+          <li><strong>NSS Student Leader</strong> (2022–2024)</li>
+          <li><strong>Scout Leader & Patrol Member</strong> (2018–2022)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SKILLS ═══ -->
+  <section id="skills" class="section reveal">
+    <div class="section-hdr">
+      <span class="sec-num">03</span>
+      <div>
+        <div class="sec-tag">Expertise</div>
+        <h2 class="sec-title">Technical <span class="grad-text">Skillset</span></h2>
+      </div>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card reveal">
+        <div class="skill-card-icon">💻</div>
+        <h3 class="skill-card-title">Languages</h3>
+        <div class="skill-tags">
+          <span class="stag purple">Python</span>
+          <span class="stag purple">C</span>
+          <span class="stag purple">C++</span>
+          <span class="stag blue">Core Java</span>
+          <span class="stag blue">Bash / Shell</span>
+          <span class="stag blue">SQL</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-card-icon">🤖</div>
+        <h3 class="skill-card-title">AI, ML & RAG</h3>
+        <div class="skill-tags">
+          <span class="stag teal">PyTorch</span>
+          <span class="stag teal">TensorFlow</span>
+          <span class="stag teal">Scikit-learn</span>
+          <span class="stag purple">NumPy & Pandas</span>
+          <span class="stag purple">Hugging Face</span>
+          <span class="stag purple">Llama.cpp & Ollama</span>
+          <span class="stag purple">RAG & Vector DBs</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-card-icon">🛠️</div>
+        <h3 class="skill-card-title">Tools & Systems</h3>
+        <div class="skill-tags">
+          <span class="stag red">Linux (Parrot OS, RHEL 10.1)</span>
+          <span class="stag red">Git & GitHub</span>
+          <span class="stag red">VS Code</span>
+          <span class="stag blue">Jupyter Notebook</span>
+          <span class="stag blue">Power BI</span>
+          <span class="stag blue">MySQL & Oracle SQL</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-card-icon">☁️</div>
+        <h3 class="skill-card-title">Specialized Domains</h3>
+        <div class="skill-tags">
+          <span class="stag teal">Cloud Computing</span>
+          <span class="stag teal">Linux Administration</span>
+          <span class="stag teal">LLM Fine-Tuning</span>
+          <span class="stag purple">Model Optimization</span>
+          <span class="stag purple">Decision Automation</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ PROJECTS ═══ -->
+  <section id="projects" class="section reveal">
+    <div class="section-hdr">
+      <span class="sec-num">04</span>
+      <div>
+        <div class="sec-tag">Portfolio</div>
+        <h2 class="sec-title">Featured <span class="grad-text">Projects</span></h2>
+      </div>
+    </div>
+    <div class="projects-grid">
+
+      <div class="proj-card featured reveal">
+        <span class="feat-badge">⭐ Featured AI Project</span>
+        <div class="proj-icon-box" style="background:rgba(124,92,252,.15)">🤖</div>
+        <h3 class="proj-title">VIP Assistant – Local AI Agent with RAG</h3>
+        <p class="proj-desc">A local AI assistant integrating cloud & on-device LLMs. Implemented Retrieval-Augmented Generation (RAG) with semantic workspace search. Multi-provider support (Ollama, Gemini, Claude, NVIDIA NIM) with an interactive web UI, file explorer, and code workspace.</p>
+        <div class="proj-tags">
+          <span class="ptag">Python</span><span class="ptag">Node.js</span><span class="ptag">React</span><span class="ptag">Ollama</span><span class="ptag">Vector DB</span><span class="ptag">WebSockets</span>
+        </div>
+        <div class="proj-links">
+          <a href="https://github.com/vip-sk07" target="_blank" class="plink primary">◈ View on GitHub</a>
+        </div>
+      </div>
+
+      <div class="proj-card reveal">
+        <div class="proj-icon-box" style="background:rgba(255,107,107,.15)">🐧</div>
+        <h3 class="proj-title">Custom Linux Operating System</h3>
+        <p class="proj-desc">Building a customized Linux distribution tailored specifically for development and AI workloads. Configured system components, custom package manager workflows, boot process, and kernel optimizations.</p>
+        <div class="proj-tags">
+          <span class="ptag">Linux</span><span class="ptag">Bash</span><span class="ptag">Kernel Config</span><span class="ptag">Shell Scripting</span>
+        </div>
+        <div class="proj-links">
+          <a href="https://github.com/vip-sk07" target="_blank" class="plink primary">◈ View Details</a>
+        </div>
+      </div>
+
+      <div class="proj-card reveal">
+        <div class="proj-icon-box" style="background:rgba(0,212,170,.12)">🏛️</div>
+        <h3 class="proj-title">Smart Beneficiary Mapping System (Ed 2)</h3>
+        <p class="proj-desc">AI-powered decision automation platform recommending government welfare schemes based on demographic eligibility. Uses autonomous agent workflows and automated recommendation engines to streamline public service access.</p>
+        <div class="proj-tags">
+          <span class="ptag">Python</span><span class="ptag">AI Agents</span><span class="ptag">Automation</span><span class="ptag">Rule Engine</span><span class="ptag">MySQL</span>
+        </div>
+        <div class="proj-links">
+          <a href="#contact" class="plink primary">📄 Request Paper / Cert</a>
+          <a href="https://github.com/vip-sk07" target="_blank" class="plink">◈ GitHub</a>
+        </div>
+      </div>
+
+      <div class="proj-card reveal">
+        <div class="proj-icon-box" style="background:rgba(59,130,246,.12)">🌐</div>
+        <h3 class="proj-title">OmniShell Cloud</h3>
+        <p class="proj-desc">Distributed web-based terminal for remotely managing multiple Linux systems. Features secure agent communication, command translation across Linux distros, interactive WebSocket PTY sessions, and live deployment on Render.</p>
+        <div class="proj-tags">
+          <span class="ptag">Python</span><span class="ptag">Flask</span><span class="ptag">Socket.IO</span><span class="ptag">WebSockets</span><span class="ptag">Linux</span>
+        </div>
+        <div class="proj-links">
+          <a href="https://omnishell.onrender.com/login" target="_blank" class="plink primary">⬡ Live Demo</a>
+          <a href="https://github.com/vip-sk07" target="_blank" class="plink">◈ GitHub</a>
+        </div>
+      </div>
+
+      <div class="proj-card reveal">
+        <div class="proj-icon-box" style="background:rgba(255,107,107,.1)">📈</div>
+        <h3 class="proj-title">Stock Market Analysis & Prediction</h3>
+        <p class="proj-desc">Trading-terminal style interactive dashboard for stock analysis and price prediction using regression, classification ML algorithms, real-time analytics, and Streamlit visualization.</p>
+        <div class="proj-tags">
+          <span class="ptag">Python</span><span class="ptag">Pandas</span><span class="ptag">Scikit-Learn</span><span class="ptag">Streamlit</span><span class="ptag">ML</span>
+        </div>
+        <div class="proj-links">
+          <a href="https://github.com/vip-sk07" target="_blank" class="plink primary">◈ GitHub</a>
+        </div>
+      </div>
+
+      <div class="proj-card reveal">
+        <div class="proj-icon-box" style="background:rgba(124,92,252,.12)">🧩</div>
+        <h3 class="proj-title">Maze Runner 3D using AI Search</h3>
+        <p class="proj-desc">3D maze game demonstrating classical AI search techniques (A*, CSP). Implemented intelligent pathfinding, obstacle navigation, Three.js rendering, and optimized game state logic.</p>
+        <div class="proj-tags">
+          <span class="ptag">Python</span><span class="ptag">Flask</span><span class="ptag">JavaScript</span><span class="ptag">Three.js</span><span class="ptag">AI Search</span>
+        </div>
+        <div class="proj-links">
+          <a href="https://github.com/vip-sk07" target="_blank" class="plink primary">◈ GitHub</a>
+        </div>
+      </div>
+
+      <div class="proj-card reveal">
+        <div class="proj-icon-box" style="background:rgba(0,212,170,.1)">🛒</div>
+        <h3 class="proj-title">Customer Cart Chronicles (EDA & Power BI)</h3>
+        <p class="proj-desc">End-to-end exploratory data analysis on the UCI Online Retail dataset. Applied customer segmentation, data preprocessing, and interactive Power BI dashboards for sales trend insights.</p>
+        <div class="proj-tags">
+          <span class="ptag">Python</span><span class="ptag">R</span><span class="ptag">Power BI</span><span class="ptag">Pandas</span><span class="ptag">Seaborn</span>
+        </div>
+        <div class="proj-links">
+          <a href="https://github.com/vip-sk07" target="_blank" class="plink primary">◈ GitHub</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ CERTIFICATIONS ═══ -->
+  <section id="certifications" class="section reveal">
+    <div class="section-hdr">
+      <span class="sec-num">05</span>
+      <div>
+        <div class="sec-tag">Credentials</div>
+        <h2 class="sec-title">Certifications & <span class="grad-text">Merits</span></h2>
+      </div>
+    </div>
+    <div class="certs-grid">
+
+      <div class="cert-card reveal">
+        <div class="cert-icon">🌐</div>
+        <div class="cert-body">
+          <div class="cert-name">Introduction to Internet of Things (Elite)</div>
+          <div class="cert-org">NPTEL · IIT Kharagpur</div>
+          <div class="cert-date">Jan – Apr 2026</div>
+          <span style="font-size:0.75rem; color:var(--accent2); margin-top:0.3rem; display:inline-block;">✔ Verified Credential</span>
+        </div>
+      </div>
+
+      <div class="cert-card reveal">
+        <div class="cert-icon">🎨</div>
+        <div class="cert-body">
+          <div class="cert-name">Design & Implementation of HCI</div>
+          <div class="cert-org">NPTEL · IIT Guwahati</div>
+          <div class="cert-date">Jul – Oct 2025</div>
+          <span style="font-size:0.75rem; color:var(--accent2); margin-top:0.3rem; display:inline-block;">✔ Verified Credential</span>
+        </div>
+      </div>
+
+      <div class="cert-card reveal">
+        <div class="cert-icon">💻</div>
+        <div class="cert-body">
+          <div class="cert-name">CompTIA IT Fundamentals: Operating Systems</div>
+          <div class="cert-org">Infosys Springboard / Skillsoft</div>
+          <div class="cert-date">Apr 2026</div>
+          <span style="font-size:0.75rem; color:var(--accent2); margin-top:0.3rem; display:inline-block;">✔ Verified Credential</span>
+        </div>
+      </div>
+
+      <div class="cert-card reveal">
+        <div class="cert-icon">📜</div>
+        <div class="cert-body">
+          <div class="cert-name">English for Technical Professionals</div>
+          <div class="cert-org">IEEE</div>
+          <div class="cert-date">May 2025</div>
+          <span style="font-size:0.75rem; color:var(--accent2); margin-top:0.3rem; display:inline-block;">✔ Verified Credential</span>
+        </div>
+      </div>
+
+      <div class="cert-card reveal">
+        <div class="cert-icon">🤖</div>
+        <div class="cert-body">
+          <div class="cert-name">Unlocking Innovation in AI</div>
+          <div class="cert-org">NSIC Technical Services Centre, Govt of India</div>
+          <div class="cert-date">Jan 2026</div>
+          <span style="font-size:0.75rem; color:var(--accent2); margin-top:0.3rem; display:inline-block;">✔ Verified Credential</span>
+        </div>
+      </div>
+
+      <div class="cert-card reveal">
+        <div class="cert-icon">🏢</div>
+        <div class="cert-body">
+          <div class="cert-name">Industrial Visit — Web Development</div>
+          <div class="cert-org">CodeBind Technologies, Chennai</div>
+          <div class="cert-date">Jan 2026</div>
+          <span style="font-size:0.75rem; color:var(--accent2); margin-top:0.3rem; display:inline-block;">✔ Verified Credential</span>
+        </div>
+      </div>
+
+      <div class="cert-card reveal">
+        <div class="cert-icon">🏆</div>
+        <div class="cert-body">
+          <div class="cert-name">Certificate of Merit — IEI Executive Member</div>
+          <div class="cert-org">Institution of Engineers (India) AI & DS Chapter</div>
+          <div class="cert-date">2025 – 2026</div>
+          <span style="font-size:0.75rem; color:var(--accent2); margin-top:0.3rem; display:inline-block;">🌟 Executive Award</span>
+        </div>
+      </div>
+
+      <div class="cert-card reveal">
+        <div class="cert-icon">🌟</div>
+        <div class="cert-body">
+          <div class="cert-name">Certificate of Merit — Google Student Club</div>
+          <div class="cert-org">Office Bearer · Mepco Schlenk Engg. College</div>
+          <div class="cert-date">2025 – 2026</div>
+          <span style="font-size:0.75rem; color:var(--accent2); margin-top:0.3rem; display:inline-block;">🌟 Office Bearer Award</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ AI ASSISTANT ═══ -->
+  <section id="ai" class="section reveal">
+    <div class="section-hdr">
+      <span class="sec-num">06</span>
+      <div>
+        <div class="sec-tag">Interactive RAG Bot</div>
+        <h2 class="sec-title">Ask My <span class="grad-text">AI Assistant</span></h2>
+      </div>
+    </div>
+    <div class="ai-chat-box">
+      <div class="ai-top-line"></div>
+      <div class="ai-header">
+        <div class="ai-avatar-wrap">
+          <div class="ai-avatar">🤖</div>
+          <div class="ai-online-dot"></div>
+        </div>
+        <div class="ai-info">
+          <div class="ai-name">Karan's Portfolio Assistant</div>
+          <div class="ai-model">Indexed with Karan Raj T's Verified Resume & Projects</div>
+        </div>
+        <div class="ai-dots">
+          <span class="dot-red"></span>
+          <span class="dot-amb"></span>
+          <span class="dot-grn"></span>
+        </div>
+      </div>
+      <div class="ai-messages" id="aiMessages">
+        <div class="msg ai-msg">
+          <span>Hi! I'm Karan Raj T's AI assistant. Ask me about his CGPA (8.39), college, VIP AI Assistant project, custom Linux OS, or technical skills! 😊</span>
+        </div>
+      </div>
+      <div class="ai-input-row">
+        <input type="text" class="ai-input" id="aiInput" placeholder="Ask about Karan's education, projects, contact info..." />
+        <button class="ai-send" id="aiSend">➤</button>
+      </div>
+      <div class="ai-suggestions">
+        <button class="ai-chip" onclick="askAI('What is Karan\'s education and CGPA?')">Education & CGPA?</button>
+        <button class="ai-chip" onclick="askAI('Tell me about the VIP Assistant AI project')">VIP AI Assistant?</button>
+        <button class="ai-chip" onclick="askAI('What are Karan\'s top skills?')">Skills?</button>
+        <button class="ai-chip" onclick="askAI('How can I contact Karan?')">Contact details?</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CONTACT ═══ -->
+  <section id="contact" class="section reveal">
+    <div class="section-hdr">
+      <span class="sec-num">07</span>
+      <div>
+        <div class="sec-tag">Get In Touch</div>
+        <h2 class="sec-title">Let's <span class="grad-text">Connect</span></h2>
+      </div>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-left reveal">
+        <p class="contact-bio">I am actively seeking AI / ML engineering internships, research collaborations, and open-source contributions. Feel free to reach out directly via email, phone, or LinkedIn!</p>
+        <div class="social-cards">
+          <a href="mailto:karanraj2006rk@gmail.com" class="social-card">
+            <div class="social-icon">✉️</div>
+            <div><div class="social-name">Email</div><div class="social-sub">karanraj2006rk@gmail.com</div></div>
+            <span class="social-arrow">→</span>
+          </a>
+          <a href="tel:+919384102655" class="social-card">
+            <div class="social-icon">📞</div>
+            <div><div class="social-name">Phone</div><div class="social-sub">+91 9384102655</div></div>
+            <span class="social-arrow">→</span>
+          </a>
+          <a href="https://github.com/vip-sk07" target="_blank" class="social-card">
+            <div class="social-icon">🐙</div>
+            <div><div class="social-name">GitHub</div><div class="social-sub">github.com/vip-sk07</div></div>
+            <span class="social-arrow">→</span>
+          </a>
+          <a href="https://www.linkedin.com/in/karan-raj-t-835508351" target="_blank" class="social-card">
+            <div class="social-icon">💼</div>
+            <div><div class="social-name">LinkedIn</div><div class="social-sub">karan-raj-t-835508351</div></div>
+            <span class="social-arrow">→</span>
+          </a>
+        </div>
+      </div>
+      <div class="contact-right reveal">
+        <form class="contact-form" id="contactForm">
+          <div class="form-group">
+            <label class="form-label">Your Name</label>
+            <input type="text" id="formName" class="form-input" placeholder="John Doe" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email Address</label>
+            <input type="email" id="formEmail" class="form-input" placeholder="john@example.com" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Message</label>
+            <textarea id="formMsg" class="form-input form-ta" rows="5" placeholder="Let's discuss a project or opportunity..." required></textarea>
+          </div>
+          <button type="submit" class="btn-primary btn-full" id="formSubmit">Send Message 🚀</button>
+          <div class="form-success" id="formSuccess">✅ Message sent! I will get back to you shortly.</div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <a href="#hero" class="logo">Karan Raj<span class="logo-dot">.ai</span></a>
+      <p class="footer-copy">© 2026 Karan Raj T · Mepco Schlenk Engineering College</p>
+      <div class="footer-links">
+        <a href="https://github.com/vip-sk07" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/karan-raj-t-835508351" target="_blank">LinkedIn</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
 </body>
 </html>

@@ -1,0 +1,17 @@
+# Archives & Extracted Data
+*.zip
+info_extracted/
+personal_extracted/
+
+# Sensitive Personal Documents & Photos
+karan_raj.png
+avatar.png
+resume.docx
+resume.pdf
+certificates/
+
+# OS & Editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

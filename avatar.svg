@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#111118" />
+      <stop offset="100%" stop-color="#1a1a24" />
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7c5cfc" />
+      <stop offset="100%" stop-color="#00d4aa" />
+    </linearGradient>
+    <linearGradient id="glowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgba(124, 92, 252, 0.4)" />
+      <stop offset="100%" stop-color="rgba(0, 212, 170, 0.4)" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background Circle -->
+  <rect width="400" height="400" rx="200" fill="url(#bgGrad)" />
+  <circle cx="200" cy="200" r="190" fill="none" stroke="url(#accentGrad)" stroke-width="3" opacity="0.4" />
+
+  <!-- Outer Ring Orbit Lines -->
+  <circle cx="200" cy="200" r="160" fill="none" stroke="#7c5cfc" stroke-width="1.5" stroke-dasharray="8,6" opacity="0.5" />
+  <circle cx="200" cy="200" r="130" fill="none" stroke="#00d4aa" stroke-width="1" stroke-dasharray="4,4" opacity="0.6" />
+
+  <!-- Avatar Silhouette Head & Shoulders -->
+  <!-- Shoulders -->
+  <path d="M 100 340 C 100 270, 140 240, 200 240 C 260 240, 300 270, 300 340 Z" fill="url(#accentGrad)" opacity="0.85" />
+  
+  <!-- Head -->
+  <circle cx="200" cy="165" r="55" fill="url(#accentGrad)" />
+
+  <!-- Cyber Visor / AI Glasses -->
+  <path d="M 155 155 L 245 155 C 250 155, 250 175, 245 175 L 155 175 C 150 175, 150 155, 155 155 Z" fill="#0a0a0f" stroke="#00d4aa" stroke-width="2" filter="url(#glow)" />
+  <line x1="160" y1="165" x2="240" y2="165" stroke="#00d4aa" stroke-width="3" stroke-linecap="round" />
+
+  <!-- Code / AI Nodes overlay -->
+  <circle cx="120" cy="120" r="4" fill="#00d4aa" />
+  <line x1="120" y1="120" x2="160" y2="140" stroke="#00d4aa" stroke-width="1" opacity="0.5" />
+  
+  <circle cx="280" cy="120" r="4" fill="#7c5cfc" />
+  <line x1="280" y1="120" x2="240" y2="140" stroke="#7c5cfc" stroke-width="1" opacity="0.5" />
+
+  <circle cx="200" cy="80" r="5" fill="#ff6b6b" />
+  <line x1="200" y1="80" x2="200" y2="110" stroke="#ff6b6b" stroke-width="1" opacity="0.5" />
+</svg>
