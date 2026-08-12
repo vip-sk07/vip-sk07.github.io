@@ -264,6 +264,10 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       keywords: ['research', 'paper', 'publication', 'data structure', 'timestamp', 'indexing'],
       answer: "Karan is currently engaged in ongoing research titled: 'Design and Optimization of Hybrid Data Structures for Timestamp-Based Data Storage, Indexing, and Query Processing'."
+    },
+    {
+      keywords: ['resume', 'cv', 'download', 'pdf', 'bio', 'profile'],
+      answer: "You can download Karan's resumes directly from the portfolio:\n1. 📄 Resume 1 (AI & RAG Focus): Features VIP Assistant, Smart Beneficiary Mapping, and ML projects.\n2. 📄 Resume 2 (Systems & Data Focus): Features Custom Linux OS, OmniShell Cloud, and Customer Cart EDA."
     }
   ];
 
