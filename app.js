@@ -235,41 +235,145 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', checkStats);
   checkStats();
 
-  // ═══ AI ASSISTANT CHAT WITH KARAN RAJ T'S KNOWLEDGE (SCORE MATCHED) ═══
+  // ═══ CLIENT-SIDE RAG (TF-IDF + COSINE SIMILARITY VECTOR SPACE RETRIEVER) ═══
   const aiMessages = document.getElementById('aiMessages');
   const aiInput = document.getElementById('aiInput');
   const aiSend = document.getElementById('aiSend');
 
-  const knowledgeBase = [
+  const documentChunks = [
     {
-      keywords: ['education', 'cgpa', 'college', 'mepco', 'degree', 'study', 'marks', 'school', 'gpa', 'university', 'btech', 'grade', 'class'],
-      answer: "Karan Raj T is pursuing B.Tech in Artificial Intelligence & Data Science at Mepco Schlenk Engineering College, Sivakasi (2025–2029).\n• Current CGPA: 8.39 / 10\n• HSC (Class 12): 87.67% (S.H.N. Edward Higher Secondary School, Sattur)\n• SSLC (Class 10): 85.80%"
+      id: 'biography',
+      title: 'About Karan Raj T',
+      content: 'Karan Raj T is a pre-final year Artificial Intelligence and Data Science undergraduate at Mepco Schlenk Engineering College, Sivakasi. He has a CGPA of 8.39 out of 10. His technical interests lie in Cloud Computing, Linux System Administration, Large Language Models (LLMs), Hugging Face, Llama.cpp, and Retrieval-Augmented Generation (RAG). He is from Sattur / Sivakasi, Tamil Nadu, India.'
     },
     {
-      keywords: ['skill', 'stack', 'tech', 'language', 'know', 'programming', 'tools', 'python', 'java', 'linux', 'pytorch', 'c++', 'c'],
-      answer: "Karan's technical skills include:\n• Languages: Python, C, C++, Core Java, SQL, Shell\n• AI/ML: PyTorch, TensorFlow, Scikit-learn, NumPy, Pandas, RAG, HuggingFace, Llama.cpp, Ollama\n• Tools & OS: Linux (Parrot OS, RHEL 10.1), Git/GitHub, VS Code, Power BI, MySQL, Oracle SQL"
+      id: 'education',
+      title: 'Education & Academics',
+      content: 'Karan Raj T is pursuing a B.Tech in Artificial Intelligence & Data Science at Mepco Schlenk Engineering College, Sivakasi (2025–2029) with a current CGPA of 8.39. He completed his Class XII (HSC) with 87.67% and Class X (SSLC) with 85.80% at S.H.N. Edward Higher Secondary School, Sattur.'
     },
     {
-      keywords: ['project', 'work', 'vip', 'linux', 'omnishell', 'built', 'portfolio', 'bot', 'agent', 'rag', 'stock', 'maze'],
-      answer: "Karan's notable projects include:\n1. VIP Assistant: Local AI Agent with RAG, Ollama & WebSockets.\n2. Custom Linux OS: Custom Linux distribution for AI workloads.\n3. Smart Beneficiary Mapping System: AI decision automation for welfare schemes.\n4. OmniShell Cloud: Distributed web terminal (Deployed on Render).\n5. Stock Market Analyzer: ML price prediction trading terminal dashboard."
+      id: 'skills',
+      title: 'Technical Skills',
+      content: 'Karan\'s technical skills and programming languages: Python, C, C++, Core Java, SQL, Bash/Shell scripting. AI/ML libraries: PyTorch, TensorFlow, Scikit-learn, NumPy, Pandas, HuggingFace, Llama.cpp, Ollama, Vector Databases, Retrieval-Augmented Generation (RAG). Tools and OS: Linux (Parrot OS, RHEL 10.1), Git, GitHub, VS Code, Jupyter Notebook, Power BI, MySQL, Oracle SQL.'
     },
     {
-      keywords: ['certif', 'nptel', 'ieee', 'comptia', 'award', 'merit', 'credential', 'certificate', 'iot', 'hci'],
-      answer: "Karan holds certifications in:\n• NPTEL IoT (Elite) - IIT Kharagpur\n• Design & Implementation of HCI - NPTEL IIT Guwahati\n• CompTIA IT Fundamentals: Operating Systems - Infosys Springboard\n• IEEE English for Technical Professionals\n• Certificates of Merit: IEI Executive Member & Google Student Club Office Bearer"
+      id: 'projects',
+      title: 'Projects',
+      content: 'Karan\'s projects include: 1. VIP Assistant: Local AI Agent with RAG, Ollama & WebSockets. 2. Custom Linux OS: Custom Linux distribution for development and AI workloads. 3. Smart Beneficiary Mapping System (Ed 2): AI-powered welfare scheme recommendation engine with autonomous agent workflows. 4. OmniShell Cloud: Distributed web terminal for remote Linux management. 5. Stock Market Analysis & Prediction: ML streamlit dashboard. 6. Maze Runner 3D: 3D maze game demonstrating classical AI search (A*).'
     },
     {
-      keywords: ['contact', 'email', 'phone', 'reach', 'linkedin', 'github', 'mobile', 'hire', 'call', 'mail', 'location', 'address'],
-      answer: "You can contact Karan Raj T directly:\n• Email: karanraj2006rk@gmail.com\n• Phone: +91 9384102655\n• LinkedIn: linkedin.com/in/karan-raj-t-835508351\n• GitHub: github.com/vip-sk07\n• Location: Sattur / Sivakasi, Tamil Nadu, India"
+      id: 'certifications',
+      title: 'Certifications & Credentials',
+      content: 'Karan holds certifications: NPTEL IoT (Elite) from IIT Kharagpur, NPTEL Design & Implementation of HCI from IIT Guwahati, CompTIA IT Fundamentals: Operating Systems from Infosys Springboard, IEEE English for Technical Professionals, NSIC Technical Services AI innovation workshop, CodeBind Technologies web development industrial visit. Merit awards: IE(I) Executive Member, Google Student Club Office Bearer.'
     },
     {
-      keywords: ['research', 'paper', 'publication', 'data structure', 'timestamp', 'indexing'],
-      answer: "Karan is currently engaged in ongoing research titled: 'Design and Optimization of Hybrid Data Structures for Timestamp-Based Data Storage, Indexing, and Query Processing'."
+      id: 'contact',
+      title: 'Contact & Social Media',
+      content: 'Contact details for Karan Raj T: Email: karanraj2006rk@gmail.com, Phone: +91 9384102655. GitHub profile: github.com/vip-sk07. LinkedIn: linkedin.com/in/karan-raj-t-835508351. Location: Sattur / Sivakasi, Tamil Nadu, India.'
     },
     {
-      keywords: ['resume', 'cv', 'download', 'pdf', 'bio', 'profile'],
-      answer: "You can download Karan's resumes directly from the portfolio:\n1. 📄 Resume 1 (AI & RAG Focus): Features VIP Assistant, Smart Beneficiary Mapping, and ML projects.\n2. 📄 Resume 2 (Systems & Data Focus): Features Custom Linux OS, OmniShell Cloud, and Customer Cart EDA."
+      id: 'research',
+      title: 'Ongoing Research',
+      content: 'Karan is working on research titled: \'Design and Optimization of Hybrid Data Structures for Timestamp-Based Data Storage, Indexing, and Query Processing\'.'
+    },
+    {
+      id: 'resumes',
+      title: 'Resume & CV Downloads',
+      content: 'Download Karan\'s resumes: Resume 1 (AI and RAG Focus) featuring VIP Assistant and AI agent projects (Resume_1.pdf). Resume 2 (Systems and Data Focus) featuring Custom Linux OS and OmniShell terminal projects (Resume_2.pdf).'
     }
   ];
+
+  const stopWords = new Set([
+    'i', 'me', 'my', 'myself', 'we', 'our', 'ours', 'ourselves', 'you', 'your', 'yours', 'him', 'his', 'her', 'it', 'its', 'they', 'them',
+    'what', 'which', 'who', 'whom', 'this', 'that', 'these', 'those', 'am', 'is', 'are', 'was', 'were', 'be', 'been', 'being', 'have', 'has', 'had',
+    'having', 'do', 'does', 'did', 'doing', 'a', 'an', 'the', 'and', 'but', 'if', 'or', 'because', 'as', 'until', 'while', 'of', 'at', 'by', 'for',
+    'with', 'about', 'against', 'between', 'into', 'through', 'during', 'before', 'after', 'above', 'below', 'to', 'from', 'up', 'down', 'in', 'out',
+    'on', 'off', 'over', 'under', 'again', 'further', 'then', 'once', 'here', 'there', 'when', 'where', 'why', 'how', 'all', 'any', 'both', 'each',
+    'few', 'more', 'most', 'other', 'some', 'such', 'no', 'nor', 'not', 'only', 'own', 'same', 'so', 'than', 'too', 'very', 's', 't', 'can', 'will',
+    'just', 'don', 'should', 'now', 'd', 'll', 'm', 'o', 're', 've', 'y', 'ain', 'aren', 'couldn', 'didn', 'doesn', 'hadn', 'hasn', 'haven', 'isn',
+    'ma', 'mightn', 'mustn', 'needn', 'shan', 'shouldn', 'wasn', 'weren', 'won', 'wouldn', 'tell', 'show', 'give', 'ask', 'get', 'karan', 'raj'
+  ]);
+
+  function tokenize(text) {
+    return text
+      .toLowerCase()
+      .replace(/[^\w\s]/g, ' ')
+      .split(/\s+/)
+      .filter(word => word.length > 1 && !stopWords.has(word));
+  }
+
+  // Pre-calculate document frequencies and IDF values
+  const docFrequencies = {};
+  documentChunks.forEach(doc => {
+    const uniqueWords = new Set(tokenize(doc.content));
+    uniqueWords.forEach(word => {
+      docFrequencies[word] = (docFrequencies[word] || 0) + 1;
+    });
+  });
+
+  const numDocs = documentChunks.length;
+  const idf = {};
+  for (const word in docFrequencies) {
+    idf[word] = Math.log(1 + (numDocs / docFrequencies[word]));
+  }
+
+  // Compute normalized TF-IDF document vectors
+  documentChunks.forEach(doc => {
+    const tokens = tokenize(doc.content);
+    const tf = {};
+    tokens.forEach(token => {
+      tf[token] = (tf[token] || 0) + 1;
+    });
+
+    const vector = {};
+    for (const token in tf) {
+      vector[token] = (tf[token] / tokens.length) * (idf[token] || 0);
+    }
+    doc.vector = vector;
+
+    let sumSq = 0;
+    for (const token in vector) {
+      sumSq += vector[token] * vector[token];
+    }
+    doc.magnitude = Math.sqrt(sumSq);
+  });
+
+  // TF-IDF Cosine Similarity Search
+  function retrieveChunks(queryText, topK = 1) {
+    const queryTokens = tokenize(queryText);
+    if (queryTokens.length === 0) return [];
+
+    const queryTf = {};
+    queryTokens.forEach(token => {
+      queryTf[token] = (queryTf[token] || 0) + 1;
+    });
+
+    const queryVector = {};
+    let querySumSq = 0;
+    for (const token in queryTf) {
+      if (idf[token]) {
+        queryVector[token] = (queryTf[token] / queryTokens.length) * idf[token];
+        querySumSq += queryVector[token] * queryVector[token];
+      }
+    }
+    const queryMagnitude = Math.sqrt(querySumSq);
+    if (queryMagnitude === 0) return [];
+
+    const scores = [];
+    documentChunks.forEach(doc => {
+      let dotProduct = 0;
+      for (const token in queryVector) {
+        if (doc.vector[token]) {
+          dotProduct += queryVector[token] * doc.vector[token];
+        }
+      }
+      const similarity = doc.magnitude > 0 ? (dotProduct / (queryMagnitude * doc.magnitude)) : 0;
+      scores.push({ doc, score: similarity });
+    });
+
+    scores.sort((a, b) => b.score - a.score);
+    return scores.slice(0, topK);
+  }
 
   window.askAI = function (questionText) {
     if (aiInput) {
@@ -278,31 +382,55 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
+  function formatMarkdown(text) {
+    return text
+      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+      .replace(/\*(.*?)\*/g, '<em>$1</em>')
+      .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank" style="color: var(--accent2); text-decoration: underline; font-weight: 500;">$1</a>')
+      .replace(/\n/g, '<br/>');
+  }
+
   function appendMessage(text, isUser = false) {
     const msgDiv = document.createElement('div');
     msgDiv.className = `msg ${isUser ? 'user-msg' : 'ai-msg'}`;
-    msgDiv.innerHTML = `<span>${text.replace(/\n/g, '<br/>')}</span>`;
+    msgDiv.innerHTML = `<span>${isUser ? text.replace(/\n/g, '<br/>') : formatMarkdown(text)}</span>`;
     aiMessages.appendChild(msgDiv);
     aiMessages.scrollTop = aiMessages.scrollHeight;
   }
 
   function getAIResponse(userText) {
-    const textLower = userText.toLowerCase();
-    let bestMatch = null;
-    let maxScore = 0;
+    const results = retrieveChunks(userText, 1);
+    
+    // Check if the best match similarity is above threshold
+    if (results.length > 0 && results[0].score > 0.02) {
+      const topMatch = results[0].doc;
 
-    knowledgeBase.forEach((item) => {
-      let score = 0;
-      item.keywords.forEach((kw) => {
-        if (textLower.includes(kw)) score += 1;
-      });
-      if (score > maxScore) {
-        maxScore = score;
-        bestMatch = item.answer;
+      if (topMatch.id === 'contact') {
+        return `🤖 **Contact Details for Karan Raj T:**\n• **Email:** karanraj2006rk@gmail.com\n• **Phone:** +91 9384102655\n• **LinkedIn:** [linkedin.com/in/karan-raj-t-835508351](https://www.linkedin.com/in/karan-raj-t-835508351)\n• **GitHub:** [github.com/vip-sk07](https://github.com/vip-sk07)\n• **Location:** Sattur / Sivakasi, Tamil Nadu, India\n\nFeel free to reach out directly for internship, research, or development inquiries!`;
       }
-    });
+      if (topMatch.id === 'education') {
+        return `🤖 **Education Profile:**\nKaran is pursuing a **B.Tech in Artificial Intelligence & Data Science** at Mepco Schlenk Engineering College, Sivakasi (2025–2029).\n• **Current CGPA:** 8.39 / 10\n• **Class XII (HSC):** 87.67% (S.H.N. Edward HSS, Sattur)\n• **Class X (SSLC):** 85.80% (S.H.N. Edward HSS, Sattur)`;
+      }
+      if (topMatch.id === 'skills') {
+        return `🤖 **Technical Skillset:**\n• **Programming:** Python, C, C++, Core Java, SQL, Bash/Shell\n• **AI/ML:** PyTorch, TensorFlow, Scikit-learn, NumPy, Pandas, RAG, HuggingFace, Llama.cpp, Ollama\n• **OS & Databases:** Linux (Parrot OS, RHEL 10.1), Git/GitHub, VS Code, Power BI, MySQL, Oracle SQL`;
+      }
+      if (topMatch.id === 'projects') {
+        return `🤖 **Featured Projects:**\n1. **VIP Assistant:** Local RAG agent integrating Ollama, Gemini, Claude, and NVIDIA NIM.\n2. **Custom Linux OS:** Tailored distro optimized for developer workflows.\n3. **Smart Beneficiary Mapping System (Ed 2):** Autonomous scheme recommender with agentic workflows.\n4. **OmniShell Cloud:** Remote Linux management terminal via secure WebSockets.\n5. **Stock Market Dashboard:** Streamlit ML prediction dashboard.\n6. **Maze Runner 3D:** Interactive Three.js navigation via classical search (A*).`;
+      }
+      if (topMatch.id === 'certifications') {
+        return `🤖 **Certifications & Merit:**\n• **IoT (Elite):** NPTEL IIT Kharagpur\n• **HCI Design:** NPTEL IIT Guwahati\n• **IT Fundamentals (OS):** Infosys Springboard\n• **Technical English:** IEEE\n• **Leadership Roles:** Google Student Club Office Bearer, IE(I) Executive Member`;
+      }
+      if (topMatch.id === 'resumes') {
+        return `🤖 **Download Resumes:**\n• [📄 Resume (AI & RAG Focus)](Resume_1.pdf)\n• [📄 Resume (Systems & Data Focus)](Resume_2.pdf)`;
+      }
+      if (topMatch.id === 'research') {
+        return `🤖 **Ongoing Research:**\nKaran is researching **"Design and Optimization of Hybrid Data Structures for Timestamp-Based Data Storage, Indexing, and Query Processing"**.`;
+      }
 
-    return maxScore > 0 ? bestMatch : `Karan Raj T is an AI & Data Science undergraduate at Mepco Schlenk Engineering College (8.39 CGPA) specializing in RAG, LLMs, Linux OS, and AI automation. Feel free to ask about his skills, projects, certificates, or contact details!`;
+      return `🤖 **Information about "${topMatch.title}":**\n\n${topMatch.content}`;
+    }
+
+    return `🤖 I couldn't find a direct match in Karan's records. Try asking about his education, CGPA, projects, certifications, custom Linux OS, or contact details!`;
   }
 
   function handleSendMessage() {
