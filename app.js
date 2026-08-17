@@ -333,16 +333,55 @@ document.addEventListener('DOMContentLoaded', () => {
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
       const submitBtn = document.getElementById('formSubmit');
-      submitBtn.textContent = 'Sending... ⏳';
-
-      setTimeout(() => {
-        submitBtn.textContent = 'Send Message 🚀';
+      
+      // If the access key is still the placeholder, advise the user to change it
+      const accessKeyInput = contactForm.querySelector('input[name="access_key"]');
+      if (accessKeyInput && accessKeyInput.value === 'YOUR_ACCESS_KEY_HERE') {
+        formSuccess.textContent = "⚠️ Please configure your Web3Forms access key in index.html.";
         formSuccess.style.display = 'block';
-        contactForm.reset();
+        formSuccess.style.color = '#ffbe0b';
+        return;
+      }
+
+      submitBtn.textContent = 'Sending... ⏳';
+      submitBtn.disabled = true;
+
+      const formData = new FormData(contactForm);
+
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json'
+        },
+        body: formData
+      })
+      .then(async (response) => {
+        let json = await response.json();
+        if (response.status === 200) {
+          formSuccess.textContent = "✅ Message sent successfully! I will get back to you shortly.";
+          formSuccess.style.display = 'block';
+          formSuccess.style.color = '#4ade80';
+          contactForm.reset();
+        } else {
+          console.error(json);
+          formSuccess.textContent = json.message || "❌ Something went wrong. Please try again.";
+          formSuccess.style.display = 'block';
+          formSuccess.style.color = '#f87171';
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+        formSuccess.textContent = "❌ Network error. Please check your connection and try again.";
+        formSuccess.style.display = 'block';
+        formSuccess.style.color = '#f87171';
+      })
+      .finally(() => {
+        submitBtn.textContent = 'Send Message 🚀';
+        submitBtn.disabled = false;
         setTimeout(() => {
           formSuccess.style.display = 'none';
-        }, 5000);
-      }, 800);
+        }, 6000);
+      });
     });
   }
 });
