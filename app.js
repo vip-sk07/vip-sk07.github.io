@@ -475,13 +475,16 @@ document.addEventListener('DOMContentLoaded', () => {
       submitBtn.disabled = true;
 
       const formData = new FormData(contactForm);
+      const object = Object.fromEntries(formData);
+      const json = JSON.stringify(object);
 
       fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: {
+          'Content-Type': 'application/json',
           'Accept': 'application/json'
         },
-        body: formData
+        body: json
       })
       .then(async (response) => {
         let json = await response.json();
