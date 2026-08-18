@@ -244,42 +244,42 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       id: 'biography',
       title: 'About Karan Raj T',
-      content: 'Karan Raj T is a pre-final year Artificial Intelligence and Data Science undergraduate at Mepco Schlenk Engineering College, Sivakasi. He has a CGPA of 8.39 out of 10. His technical interests lie in Cloud Computing, Linux System Administration, Large Language Models (LLMs), Hugging Face, Llama.cpp, and Retrieval-Augmented Generation (RAG). He is from Sattur / Sivakasi, Tamil Nadu, India.'
+      content: `🤖 **About Karan Raj T:**\nKaran Raj T is a pre-final year **Artificial Intelligence & Data Science** undergraduate at Mepco Schlenk Engineering College, Sivakasi (CGPA: 8.39).\n\n• **Interests:** Cloud Computing, Linux System Administration, Large Language Models (LLMs), Hugging Face, Llama.cpp, and Retrieval-Augmented Generation (RAG).\n• **Ongoing Research:** Design and Optimization of Hybrid Data Structures for Timestamp-Based Data Storage.\n• **Location:** Sattur / Sivakasi, Tamil Nadu, India.`
     },
     {
       id: 'education',
       title: 'Education & Academics',
-      content: 'Karan Raj T is pursuing a B.Tech in Artificial Intelligence & Data Science at Mepco Schlenk Engineering College, Sivakasi (2025–2029) with a current CGPA of 8.39. He completed his Class XII (HSC) with 87.67% and Class X (SSLC) with 85.80% at S.H.N. Edward Higher Secondary School, Sattur.'
+      content: `🤖 **Education Profile:**\nKaran is pursuing a **B.Tech in Artificial Intelligence & Data Science** at Mepco Schlenk Engineering College, Sivakasi (2025–2029).\n• **Current CGPA:** 8.39 / 10\n• **Class XII (HSC):** 87.67% (S.H.N. Edward HSS, Sattur)\n• **Class X (SSLC):** 85.80% (S.H.N. Edward HSS, Sattur)`
     },
     {
       id: 'skills',
       title: 'Technical Skills',
-      content: 'Karan\'s technical skills and programming languages: Python, C, C++, Core Java, SQL, Bash/Shell scripting. AI/ML libraries: PyTorch, TensorFlow, Scikit-learn, NumPy, Pandas, HuggingFace, Llama.cpp, Ollama, Vector Databases, Retrieval-Augmented Generation (RAG). Tools and OS: Linux (Parrot OS, RHEL 10.1), Git, GitHub, VS Code, Jupyter Notebook, Power BI, MySQL, Oracle SQL.'
+      content: `🤖 **Technical Skillset:**\n• **Programming:** Python, C, C++, Core Java, SQL, Bash/Shell\n• **AI/ML:** PyTorch, TensorFlow, Scikit-learn, NumPy, Pandas, RAG, HuggingFace, Llama.cpp, Ollama\n• **OS & Databases:** Linux (Parrot OS, RHEL 10.1), Git/GitHub, VS Code, Power BI, MySQL, Oracle SQL`
     },
     {
       id: 'projects',
       title: 'Projects',
-      content: 'Karan\'s projects include: 1. VIP Assistant: Local AI Agent with RAG, Ollama & WebSockets. 2. Custom Linux OS: Custom Linux distribution for development and AI workloads. 3. Smart Beneficiary Mapping System (Ed 2): AI-powered welfare scheme recommendation engine with autonomous agent workflows. 4. OmniShell Cloud: Distributed web terminal for remote Linux management. 5. Stock Market Analysis & Prediction: ML streamlit dashboard. 6. Maze Runner 3D: 3D maze game demonstrating classical AI search (A*).'
+      content: `🤖 **Featured Projects:**\n1. **VIP Assistant:** Local RAG agent integrating Ollama, Gemini, Claude, and NVIDIA NIM.\n2. **Custom Linux OS:** Tailored distro optimized for developer workflows.\n3. **Smart Beneficiary Mapping System (Ed 2):** Autonomous scheme recommender with agentic workflows.\n4. **OmniShell Cloud:** Remote Linux management terminal via secure WebSockets.\n5. **Stock Market Dashboard:** Streamlit ML prediction dashboard.\n6. **Maze Runner 3D:** Interactive Three.js navigation via classical search (A*).`
     },
     {
       id: 'certifications',
       title: 'Certifications & Credentials',
-      content: 'Karan holds certifications: NPTEL IoT (Elite) from IIT Kharagpur, NPTEL Design & Implementation of HCI from IIT Guwahati, CompTIA IT Fundamentals: Operating Systems from Infosys Springboard, IEEE English for Technical Professionals, NSIC Technical Services AI innovation workshop, CodeBind Technologies web development industrial visit. Merit awards: IE(I) Executive Member, Google Student Club Office Bearer.'
+      content: `🤖 **Certifications & Merit:**\n• **IoT (Elite):** NPTEL IIT Kharagpur\n• **HCI Design:** NPTEL IIT Guwahati\n• **IT Fundamentals (OS):** Infosys Springboard\n• **Technical English:** IEEE\n• **Leadership Roles:** Google Student Club Office Bearer, IE(I) Executive Member`
     },
     {
       id: 'contact',
-      title: 'Contact & Social Media',
-      content: 'Contact details for Karan Raj T: Email: karanraj2006rk@gmail.com, Phone: +91 9384102655. GitHub profile: github.com/vip-sk07. LinkedIn: linkedin.com/in/karan-raj-t-835508351. Location: Sattur / Sivakasi, Tamil Nadu, India.'
+      title: 'Contact Details',
+      content: `🤖 **Contact Details for Karan Raj T:**\n• **Email:** karanraj2006rk@gmail.com\n• **Phone:** +91 9384102655\n• **LinkedIn:** [linkedin.com/in/karan-raj-t-835508351](https://www.linkedin.com/in/karan-raj-t-835508351)\n• **GitHub:** [github.com/vip-sk07](https://github.com/vip-sk07)\n• **Location:** Sattur / Sivakasi, Tamil Nadu, India\n\nFeel free to reach out directly for internship, research, or development inquiries!`
     },
     {
       id: 'research',
       title: 'Ongoing Research',
-      content: 'Karan is working on research titled: \'Design and Optimization of Hybrid Data Structures for Timestamp-Based Data Storage, Indexing, and Query Processing\'.'
+      content: `🤖 **Ongoing Research:**\nKaran is researching **"Design and Optimization of Hybrid Data Structures for Timestamp-Based Data Storage, Indexing, and Query Processing"**.`
     },
     {
       id: 'resumes',
       title: 'Resume & CV Downloads',
-      content: 'Download Karan\'s resumes: Resume 1 (AI and RAG Focus) featuring VIP Assistant and AI agent projects (Resume_1.pdf). Resume 2 (Systems and Data Focus) featuring Custom Linux OS and OmniShell terminal projects (Resume_2.pdf).'
+      content: `🤖 **Download Resumes:**\n• [📄 Resume (AI & RAG Focus)](Resume_1.pdf)\n• [📄 Resume (Systems & Data Focus)](Resume_2.pdf)`
     }
   ];
 
@@ -403,8 +403,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Check if the best match similarity is above threshold
     if (results.length > 0 && results[0].score > 0.02) {
-      const topMatch = results[0].doc;
-      return formatResponse(topMatch);
+      return results[0].doc.content;
     }
 
     // Fallback for general questions about Karan when similarity is 0 or very low
@@ -414,39 +413,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (isGeneralQuery) {
       const bioChunk = documentChunks.find(doc => doc.id === 'biography');
-      return formatResponse(bioChunk);
+      return bioChunk.content;
     }
 
     return `🤖 I couldn't find a direct match in Karan's records. Try asking about his education, CGPA, projects, certifications, custom Linux OS, or contact details!`;
-  }
-
-  function formatResponse(chunk) {
-    if (chunk.id === 'contact') {
-      return `🤖 **Contact Details for Karan Raj T:**\n• **Email:** karanraj2006rk@gmail.com\n• **Phone:** +91 9384102655\n• **LinkedIn:** [linkedin.com/in/karan-raj-t-835508351](https://www.linkedin.com/in/karan-raj-t-835508351)\n• **GitHub:** [github.com/vip-sk07](https://github.com/vip-sk07)\n• **Location:** Sattur / Sivakasi, Tamil Nadu, India\n\nFeel free to reach out directly for internship, research, or development inquiries!`;
-    }
-    if (chunk.id === 'education') {
-      return `🤖 **Education Profile:**\nKaran is pursuing a **B.Tech in Artificial Intelligence & Data Science** at Mepco Schlenk Engineering College, Sivakasi (2025–2029).\n• **Current CGPA:** 8.39 / 10\n• **Class XII (HSC):** 87.67% (S.H.N. Edward HSS, Sattur)\n• **Class X (SSLC):** 85.80% (S.H.N. Edward HSS, Sattur)`;
-    }
-    if (chunk.id === 'skills') {
-      return `🤖 **Technical Skillset:**\n• **Programming:** Python, C, C++, Core Java, SQL, Bash/Shell\n• **AI/ML:** PyTorch, TensorFlow, Scikit-learn, NumPy, Pandas, RAG, HuggingFace, Llama.cpp, Ollama\n• **OS & Databases:** Linux (Parrot OS, RHEL 10.1), Git/GitHub, VS Code, Power BI, MySQL, Oracle SQL`;
-    }
-    if (chunk.id === 'projects') {
-      return `🤖 **Featured Projects:**\n1. **VIP Assistant:** Local RAG agent integrating Ollama, Gemini, Claude, and NVIDIA NIM.\n2. **Custom Linux OS:** Tailored distro optimized for developer workflows.\n3. **Smart Beneficiary Mapping System (Ed 2):** Autonomous scheme recommender with agentic workflows.\n4. **OmniShell Cloud:** Remote Linux management terminal via secure WebSockets.\n5. **Stock Market Dashboard:** Streamlit ML prediction dashboard.\n6. **Maze Runner 3D:** Interactive Three.js navigation via classical search (A*).`;
-    }
-    if (chunk.id === 'certifications') {
-      return `🤖 **Certifications & Merit:**\n• **IoT (Elite):** NPTEL IIT Kharagpur\n• **HCI Design:** NPTEL IIT Guwahati\n• **IT Fundamentals (OS):** Infosys Springboard\n• **Technical English:** IEEE\n• **Leadership Roles:** Google Student Club Office Bearer, IE(I) Executive Member`;
-    }
-    if (chunk.id === 'resumes') {
-      return `🤖 **Download Resumes:**\n• [📄 Resume (AI & RAG Focus)](Resume_1.pdf)\n• [📄 Resume (Systems & Data Focus)](Resume_2.pdf)`;
-    }
-    if (chunk.id === 'research') {
-      return `🤖 **Ongoing Research:**\nKaran is researching **"Design and Optimization of Hybrid Data Structures for Timestamp-Based Data Storage, Indexing, and Query Processing"**.`;
-    }
-    if (chunk.id === 'biography') {
-      return `🤖 **About Karan Raj T:**\nKaran Raj T is a pre-final year **Artificial Intelligence & Data Science** undergraduate at Mepco Schlenk Engineering College, Sivakasi (CGPA: 8.39).\n\n• **Interests:** Cloud Computing, Linux System Administration, Large Language Models (LLMs), Hugging Face, Llama.cpp, and Retrieval-Augmented Generation (RAG).\n• **Ongoing Research:** Design and Optimization of Hybrid Data Structures for Timestamp-Based Data Storage.\n• **Location:** Sattur / Sivakasi, Tamil Nadu, India.`;
-    }
-
-    return `🤖 **Information about "${chunk.title}":**\n\n${chunk.content}`;
   }
 
   function handleSendMessage() {
